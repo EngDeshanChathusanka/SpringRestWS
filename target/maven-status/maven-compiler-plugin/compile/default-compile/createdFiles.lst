@@ -1,0 +1,7 @@
+com/rest/controller/ServiceController.class
+com/rest/config/AppConfig.class
+com/rest/controller/PersonController.class
+com/rest/component/PersonService.class
+com/rest/config/WebAppInitializer.class
+com/rest/Person.class
+com/rest/component/IPersonService.class
