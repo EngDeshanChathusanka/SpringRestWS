@@ -14,4 +14,8 @@ public class PersonService implements IPersonService {
 		p.setAge(25);
 		return p;
 	}
+
+	private Person getInstance() {
+		return new Person();
+	}
 }

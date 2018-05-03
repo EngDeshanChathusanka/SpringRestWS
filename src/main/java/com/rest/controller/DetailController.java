@@ -1,5 +1,9 @@
 package com.rest.controller;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DetailController {
 
+    @ApiOperation(value = "display value", notes = "display value entered")
+    @ApiResponses(value = {@ApiResponse(code = 200, message = "A Text")})
     @RequestMapping(method = RequestMethod.GET, value = "api/test")
-    public ResponseEntity<String> show(@RequestParam(value = "Test", required = false) String str) {
+    public ResponseEntity<String> show(
+            @ApiParam(value = "Test", hidden = false) @RequestParam(value = "Test", required = false) String str) {
         return new ResponseEntity<String>(str, HttpStatus.OK);
     }
 }
