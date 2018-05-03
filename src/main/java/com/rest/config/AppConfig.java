@@ -19,23 +19,6 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Configuration 
 @ComponentScan("com.rest")
 @EnableWebMvc
-@EnableSwagger2
 public class AppConfig {
-    @Bean
-    public Docket postsApi() {
-        Docket docket = new Docket(DocumentationType.SWAGGER_2)
-                .select().apis(RequestHandlerSelectors.any()).paths(PathSelectors.any()).build().apiInfo(apiInfo());
-        docket.useDefaultResponseMessages(false);
-        return docket;
-    }
 
-    private Predicate<String> postPaths() {
-        return or(regex("/api/posts.*"), regex("/api/javainuse.*"), regex("/api/location"));
-    }
-
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Swagger Test API")
-                .description("Test Swagger Documentation")
-                .version("1.0").build();
-    }
 }  

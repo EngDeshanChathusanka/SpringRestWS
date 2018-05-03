@@ -1,6 +1,10 @@
 package com.rest.controller;
 
 import com.rest.Person;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +19,11 @@ public class PersonController {
 	private IPersonService personService;
 	
 	@RequestMapping("/person")
-	public Person getPerson(@RequestParam(value = "id",required = false, defaultValue = "0") Integer id) {
+	@ApiOperation(value = "get person object", notes = "return person with given id")
+	@ApiResponses(value = {@ApiResponse(code = 200, message = "A Person")})
+	public Person getPerson(
+			@ApiParam(value = "PersonId", hidden = false)
+			@RequestParam(value = "id", required = false, defaultValue = "0") Integer id) {
 		Person p = personService.getPerson(id);
 		return p;
 	}

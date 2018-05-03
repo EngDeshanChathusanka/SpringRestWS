@@ -1,1 +1,2 @@
-http://localhost:8080/Spring4-1/data/detail?name=deshan
+http://localhost:8080/RestWS/data/detail?name=deshan
+http://localhost:8080/RestWS/swagger-ui.html#!

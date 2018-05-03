@@ -16,11 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
+@RequestMapping("/product")
 public class DetailController {
 
     @ApiOperation(value = "display value", notes = "display value entered")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "A Text")})
-    @RequestMapping(method = RequestMethod.GET, value = "api/test")
+    @RequestMapping(method = RequestMethod.GET, value = "/test")
     public ResponseEntity<String> show(
             @ApiParam(value = "Test", hidden = false) @RequestParam(value = "Test", required = false) String str) {
         return new ResponseEntity<String>(str, HttpStatus.OK);
