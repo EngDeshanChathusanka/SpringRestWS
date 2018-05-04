@@ -3,8 +3,10 @@ package controller;
 import com.rest.controller.DetailController;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
+import org.powermock.modules.junit4.PowerMockRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -15,7 +17,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Created by deshan on 3/12/2018.
  */
+
+@RunWith(PowerMockRunner.class)
 public class DetailControllerTest {
+
     @InjectMocks
     private DetailController detailController;
 
@@ -35,7 +40,7 @@ public class DetailControllerTest {
     @Test
     public void testShow() throws Exception {
 
-        ResultActions resultActions = this.mockMvc.perform(get("/api/test")
+        ResultActions resultActions = this.mockMvc.perform(get("/product/test")
                 .param("Test", "TestStr"));
 
         resultActions.andExpect(status().isOk());
