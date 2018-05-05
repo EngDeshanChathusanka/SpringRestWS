@@ -5,6 +5,11 @@ import com.rest.Account;
 public class DBManager {
 
     public static Account getAccount(String name) {
-        return new Account();
+        Account account = new Account();
+        account.setName(name);
+        account.setBranch("DefaultBranch");
+        account.setBank("DefaultBank");
+        account.setAccountNo("DefaultAccountNo");
+        return account;
     }
 }
