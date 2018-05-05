@@ -16,7 +16,9 @@ public class PersonService implements IPersonService {
 		return p;
 	}
 
-	private Person getInstance() {
-		return new Person();
+	private Person getInstance(String name) {
+		Person person = new Person();
+		person.setName(name);
+		return person;
 	}
 }

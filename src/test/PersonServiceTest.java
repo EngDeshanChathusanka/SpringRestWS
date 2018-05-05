@@ -52,9 +52,10 @@ public class PersonServiceTest {
             InvocationTargetException, IllegalAccessException {
         PersonService personService = new PersonService();
 
-        Method method = PersonService.class.getDeclaredMethod("getInstance");
+        Method method = PersonService.class.getDeclaredMethod("getInstance", String.class);
         method.setAccessible(true);
-        Person person = (Person) method.invoke(personService);
+        String name = "Deshan";
+        Person person = (Person) method.invoke(personService, name);
 
     }
 }
