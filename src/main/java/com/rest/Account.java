@@ -1,9 +1,21 @@
 package com.rest;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonAutoDetect
 public class Account {
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("accountNo")
     private String accountNo;
+
+    @JsonProperty("bank")
     private String bank;
+
+    @JsonProperty("branch")
     private String branch;
 
     public String getName() {

@@ -27,4 +27,14 @@ public class PersonController {
 		Person p = personService.getPerson(id);
 		return p;
 	}
+
+	@RequestMapping("/person/mock")
+	@ApiOperation(value = "get mock person object", notes = "return mock person for given fileName")
+	@ApiResponses(value = {@ApiResponse(code = 200, message = "A Person")})
+	public Person getMockPerson(
+			@ApiParam(value = "FileName", hidden = false)
+			@RequestParam(value = "fileName", required = false, defaultValue = "0") String fileName) {
+		Person p = personService.getMockPerson(fileName);
+		return p;
+	}
 }
